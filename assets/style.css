@@ -28,19 +28,20 @@ nav {
     margin: 0 auto;
 }
 
-div.cards {
+.cards ul {
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 div.card {
-    width: 80%;
-    height: 90%;
+    width: 120px;
+    height: 200px;
     background-color: #99CEA8;
     border-radius: 3%;
-    margin: auto auto;
+    margin: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,5 +50,5 @@ div.card {
 
 .card img {
     width: auto;
-    height: 65%;
+    height: 60%;
 }
