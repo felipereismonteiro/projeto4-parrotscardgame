@@ -4,9 +4,28 @@ body {
 
 .rotate {
     transform: rotatey(180deg);
+    width: 120px;
+    height: 200px;
+    background-color: #99CEA8;
+    border-radius: 3%;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    transition: 1s;
 }
 
-.hidden {
+.back {
+    transition: 1s;
+}
+
+.jake{
+    background-image: url("../img/67bc2e2ef7c420fd981ec99f71396600.gif");
+    background-size: cover;
+}
+
+.none img{
     display: none;
 }
 
