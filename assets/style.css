@@ -20,12 +20,12 @@ body {
     transition: 1s;
 }
 
-.jake{
+.jake {
     background-image: url("../img/67bc2e2ef7c420fd981ec99f71396600.gif");
     background-size: cover;
 }
 
-.none img{
+.none img {
     display: none;
 }
 

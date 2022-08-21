@@ -1,9 +1,14 @@
 let contadorQtd = 0
 let contadorNome = 0
 let contador = 0
-let qtdCartas = Number(prompt("Quantas cartas você deseja?"))
+let virouCarta = 0
+let contadorPassou = 0
 let nomeDasCartas = []
+let arrayCartasIguais = []
+let cartasAdicionadas = []
 const cartas = document.querySelector(".cards ul")
+let qtdCartas = Number(prompt("Quantas cartas você deseja?"))
+
 
 
 while (qtdCartas > 14 || qtdCartas < 4 || qtdCartas % 2 == 1) {
@@ -28,11 +33,10 @@ while (contadorQtd < qtdCartas || contadorNome < nomeDasCartas.length) {
     cartas.innerHTML = cartas.innerHTML + `<li><div onclick="virarCarta(this)" class="card ${nomeDasCartas[contadorNome]}"><div><img src="img/front 1.png" alt=""></div><!--card--><div/></li>`
     contadorQtd++
     contadorNome++
+
 }
 
 function virarCarta(card) {
-
-    console.log(card)
 
 
     if (card.classList.contains("rotate")) {
@@ -43,6 +47,8 @@ function virarCarta(card) {
     }
 
     contador++
+
+    console.log(contadorPagina)
 
     card.classList.toggle(`rotate`)
     card.classList.toggle("none")
@@ -59,25 +65,28 @@ function virarCarta(card) {
         card.classList.remove("jake")
         contador--
         clearInterval(id)
+        arrayCartasIguais = []
     }
 
-    cartaSelecionada(card)
-    
-}
-
-function cartaSelecionada(selected) {
-    let contadorCarta = 0
-    let carta1 = selected
-    let carta2
-
-    console.log(carta1)
-
-    contadorCarta++
-
-    if (contador = 2) {
-        carta2 = selected
-        console.log(carta2)
+    if (arrayCartasIguais.length > 2) {
+        return false
     }
+    arrayCartasIguais.push(card.classList[1])
 
+    if (contador === 2) {
+        if (arrayCartasIguais[0] === arrayCartasIguais[1]) {
+            for (i = 0; i < id; i++) {
+                clearInterval(i)
+            }
+            clearInterval(id)
+            contador = 0
+            contadorPassou++
+            if (contadorPassou === 2) {
+                alert(`Você ganhou em ${virouCarta} jogadas!`)
+            }
+        }
+    }
+    console.log(contador)
 
+    virouCarta++
 }
