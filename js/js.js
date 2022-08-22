@@ -1,6 +1,7 @@
 /*  Variaveis   */
 let quantidadeDeCartas = Number(prompt("Quantas cartas vc deseja?"))
 let nomeAnimais = []
+let contadorJogadas = 0
 
 while (quantidadeDeCartas < 4 || quantidadeDeCartas > 14 || quantidadeDeCartas % 2 === 1) {
     alert(`Regras: 
@@ -56,10 +57,22 @@ for (i = 0; i < quantidadeDeCartas; i++) {
 }
 
 function carta(card) {
+    
+    console.log(contadorJogadas)
+    if (contadorJogadas > 1) {
+        return false
+    }
+    console.log('passou 1')
 
     if (card.classList.contains('frontBird')) {
         card.classList.remove('frontBird')
     }
+    if(card.classList.contains('rotate')) {
+        return false
+    }
+    contadorJogadas++
+
+    console.log(contadorJogadas)
 
     //images from the back of the cards 
     if (card.classList.contains("dog")) {
@@ -122,7 +135,9 @@ function carta(card) {
         }
     }
 
+
     cartaClicada(card.classList[1], card)
+
 }
 
 //function when a card is clicked
@@ -134,10 +149,10 @@ let id
 function cartaClicada(cardClicked, card) {
 
     contadorCartas++
-    
+
     if (contadorCartas === 3) {
         contadorCartas = 1
-    } 
+    }
     if (contadorCartas === 1) {
         carta1 = card
     } else if (contadorCartas === 2) {
@@ -154,6 +169,7 @@ function cartaClicada(cardClicked, card) {
             console.log(card)
 
             arraySame = [] //cleaning the array
+            contadorJogadas = 0
 
         } else if (arraySame[0] !== arraySame[1]) {
             console.log('Diferentes')
@@ -195,6 +211,6 @@ function errou() {
     carta2.classList.toggle(card3)
     carta2.classList.toggle('frontBird')
 
-    console.log('passou por aqui')
+    contadorJogadas = 0
 
 }
