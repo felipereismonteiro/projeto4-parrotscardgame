@@ -2,6 +2,7 @@
 let quantidadeDeCartas = Number(prompt("Quantas cartas vc deseja?"))
 let nomeAnimais = []
 let contadorJogadas = 0
+let contadorTentativas = 0
 
 while (quantidadeDeCartas < 4 || quantidadeDeCartas > 14 || quantidadeDeCartas % 2 === 1) {
     alert(`Regras: 
@@ -57,22 +58,17 @@ for (i = 0; i < quantidadeDeCartas; i++) {
 }
 
 function carta(card) {
-    
-    console.log(contadorJogadas)
     if (contadorJogadas > 1) {
         return false
     }
-    console.log('passou 1')
 
     if (card.classList.contains('frontBird')) {
         card.classList.remove('frontBird')
     }
-    if(card.classList.contains('rotate')) {
+    if (card.classList.contains('rotate')) {
         return false
     }
     contadorJogadas++
-
-    console.log(contadorJogadas)
 
     //images from the back of the cards 
     if (card.classList.contains("dog")) {
@@ -138,6 +134,8 @@ function carta(card) {
 
     cartaClicada(card.classList[1], card)
 
+    contadorTentativas++
+
 }
 
 //function when a card is clicked
@@ -146,6 +144,7 @@ let carta1
 let carta2
 let contadorCartas = 0
 let id
+
 function cartaClicada(cardClicked, card) {
 
     contadorCartas++
@@ -162,19 +161,15 @@ function cartaClicada(cardClicked, card) {
     arraySame.push(cardClicked)
     if (arraySame.length === 2) {
         if (arraySame[0] === arraySame[1]) {
-            console.log('Sao iguais')
 
             acertou()
-
-            console.log(card)
 
             arraySame = [] //cleaning the array
             contadorJogadas = 0
 
         } else if (arraySame[0] !== arraySame[1]) {
-            console.log('Diferentes')
 
-            let id = setTimeout(errou, 2000)
+            let id = setTimeout(errou, 1000)
 
             arraySame = [] //cleaning the array
 
@@ -183,7 +178,13 @@ function cartaClicada(cardClicked, card) {
 
 }
 
+let cartasViradas = 0
 function acertou() {
+    cartasViradas += 2
+    if (cartasViradas === quantidadeDeCartas) {
+        alert(`Você ganhou em ${contadorTentativas + 1} jogadas!`)
+    }
+
     carta1.onclick = () => {
         return false
     }
