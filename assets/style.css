@@ -13,16 +13,49 @@ body {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    transition: 1s;
-}
-
-.back {
-    transition: 1s;
+    display: none;
 }
 
 .jake {
     background-image: url("../img/67bc2e2ef7c420fd981ec99f71396600.gif");
     background-size: cover;
+}
+
+.lilcat {
+    background-image: url("../img/cat.gif");
+    background-size: cover;
+}
+
+.bird {
+    background-image: url("../img/4QYc.gif");
+    background-size: cover;
+}
+
+.madEl {
+    background-image: url("../img/elephant.gif");
+    background-size: cover;
+}
+
+.mice {
+    background-image: url("../img/mouse.gif");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.rabb {
+    background-image: url("../img/rabbit.gif");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.frontBird {
+    background-image: url('../img/front\ 1.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 9999;
 }
 
 .none img {
